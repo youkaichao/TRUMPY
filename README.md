@@ -23,6 +23,11 @@ The core function is just one-line: `from trumpy import memory_for_backward; sav
 
 Example usage is in `tests/test.py`.
 
+Example output:
+```
+estimated memory usage for backward related tensors in cpu: 1.2879786491394043 GB
+```
+
 After turning on the GPU (setting `device = torch.device('cuda:0')`):
 ```
 estimated memory usage for backward related tensors in cuda:0: 1.2881765365600586 GB
@@ -30,3 +35,5 @@ ground-truth memory usage for backward related tensors in gpu: 1.28438138961792 
 ```
 
 You see that the estimated memory usage in `CPU` is very similar with the actual memory usage in `GPU`!
+
+Therefore, if you like, you can try to estimate the GPU memory footprint in CPU memory. But keep in mind that GPU operators might be different from CPU operators.
