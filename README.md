@@ -1,4 +1,4 @@
-# Estimate GPU memory usage in CPU!
+# TRUMPY: Tracing and Reverse Understanding Memory in Pytorch
 
 Run in cpu, and get a rough estimate for GPU memory usage!
 
