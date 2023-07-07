@@ -2,6 +2,7 @@ import torch
 
 def get_tensors_saved_for_backward(net, loss, duplicate=True):
     params = set(net.parameters())
+    params = params.union(set(net.buffers()))
     saved_tensors = dict() # saved_tensor --> operator name
     queue = [loss.grad_fn]
     visited_grad_fn = set()
