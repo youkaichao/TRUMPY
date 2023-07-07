@@ -4,6 +4,12 @@ Analyze how much memory is used for calculating the backward propagation (exclud
 
 The fascinating thing is that it works in both GPU and CPU. Therefore, you can **first run the code in CPU to estimate the memory usage, which will then be a decent estimation of memory consumption in GPU**!
 
+# Install
+
+`pip install trumpy` or clone this repository and build it yourself.
+
+# Usage
+
 Example usage is in `tests/test.py`.
 
 ```python
@@ -33,3 +39,16 @@ if device != torch.device('cpu'):
     saved_memory = torch.cuda.memory_allocated() - current_memory
     print(f'ground-truth memory usage for backward related tensors in gpu: {saved_memory / 1024 ** 3} GB')
 ```
+
+You should see something like:
+```
+estimated memory usage for backward related tensors in cpu: 1.2881765365600586 GB
+```
+
+After turning on the GPU (setting `device = torch.device('cuda:0')`):
+```
+estimated memory usage for backward related tensors in cuda:0: 1.2881765365600586 GB
+ground-truth memory usage for backward related tensors in gpu: 1.28438138961792 GB
+```
+
+You see that the estimated memory usage in `CPU` is very similar with the actual memory usage in `GPU`!
