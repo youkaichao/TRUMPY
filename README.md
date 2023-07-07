@@ -1,5 +1,4 @@
-# pytorch_backward_memory_analysis
-Analyze backward memory usage in pytorch!
+# Estimate GPU memory usage in CPU!
 
 Run in cpu, and get a rough estimate for GPU memory usage!
 
