@@ -10,6 +10,8 @@ The fascinating thing is that it works in both GPU and CPU. Therefore, you can *
 
 # Usage
 
+The core function is just one-line: `from trumpy import memory_for_backward; saved_memory = memory_for_backward(net, loss)`. You just pass the network and the calculated loss to this function, and it will give you how much memory (in bytes) is needed for backward propagation.
+
 Example usage is in `tests/test.py`.
 
 ```python
@@ -27,7 +29,7 @@ if device != torch.device('cpu'):
 
 # define loss function
 loss = net(input).sum() # loss is the starting point of the backward computation graph
-from trumpy.lib import memory_for_backward
+from trumpy import memory_for_backward
 # calculate the memory used for backward
 saved_memory = memory_for_backward(net, loss)
 print(f'estimated memory usage for backward related tensors in {device}: {saved_memory / 1024 ** 3} GB')

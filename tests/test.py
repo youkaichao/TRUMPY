@@ -12,7 +12,7 @@ if device != torch.device('cpu'):
 
 # define loss function
 loss = net(input).sum() # loss is the starting point of the backward computation graph
-from trumpy.lib import memory_for_backward
+from trumpy import memory_for_backward
 # calculate the memory used for backward
 saved_memory = memory_for_backward(net, loss)
 print(f'estimated memory usage for backward related tensors in {device}: {saved_memory / 1024 ** 3} GB')
